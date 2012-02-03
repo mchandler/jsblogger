@@ -12,8 +12,7 @@ Jsblogger::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  get "/articles" => "articles#index"
-  resource :articles
+  resources :articles
   
   # Sample resource route with options:
   #   resources :products do
