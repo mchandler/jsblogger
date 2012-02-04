@@ -6,4 +6,8 @@
 	<% end %>
 </ul>
 
+<% if flash[:message] %>
+	<p class="flash"><%= flash[:message] %></p>
+<% end %>
+
 <%= link_to "New Article", new_article_path, :class => 'new_article'%>
