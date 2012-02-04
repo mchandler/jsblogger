@@ -2,6 +2,8 @@
 
 <p><%= @article.body %></p>
 
+<h4>Word Count: <%= word_count(@article.body) %></h4>
+
 <%= link_to "<< Back to All", articles_path %>
 <%= link_to "Edit", edit_article_path(@article) %>
 <%= link_to "Delete", article_path(@article), :method => :delete, :confirm => "Are you sure?" %>
