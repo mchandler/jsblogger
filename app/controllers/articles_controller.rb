@@ -12,10 +12,13 @@ class ArticlesController < ApplicationController
   end
   
   def create
-    article = Article.new(params[:article])
-    article.save
-    
-    redirect_to article_path(article)
+    @article = Article.new(params[:article])
+    if @article.save
+      redirect_to article_path(@article)
+    else
+      flash[:message] = "You are hosed!"
+      render :new
+    end
   end
   
   def edit
