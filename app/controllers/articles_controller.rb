@@ -26,10 +26,13 @@ class ArticlesController < ApplicationController
   end
   
   def update
-    article = Article.find(params[:id])
-    article.update_attributes(params[:article])
-    
-    redirect_to article_path(article)
+    @article = Article.find(params[:id])
+    if @article.update_attributes(params[:article])
+      redirect_to article_path(@article)
+    else
+      flash[:message] = "Hosed!!!"
+      render :show
+    end
   end
   
   def destroy
